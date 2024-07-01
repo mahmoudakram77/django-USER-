@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+    <li>
+      <a href="{% url 'home' %}">home</a>
+      <a href="{% url 'register' %}">register</a>
+      <a href="{% url 'admin:index' %}">admin</a>
+    </li>
+
+    {% if user.is_authenticated %}
+    <p>welcome, {{request.user.username}}</p>
+      <li><a class='navbar-link' href="{% url 'user_logout' %}">logout</a></li>
+    {% else %}
+      <li><a class='navbar-link' href="{% url 'user_login' %}">login</a></li>
+    {% endif %}
+  </ul>
+</nav>

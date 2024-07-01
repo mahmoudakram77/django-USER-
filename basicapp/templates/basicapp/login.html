@@ -1,0 +1,26 @@
+{% extends 'basicapp/base.html' %}
+
+{%block title%} login {% endblock %}
+
+
+{% block content %}
+
+<h1>please login</h1>
+
+<div style='color:red;' class=''>
+  {% if message %}
+  {{  message  }}
+{% endif %}
+</div>
+
+  
+<form action="{% url 'user_login' %}" method='post'>
+{% csrf_token %}
+<label for="username">Username:</label>
+<input type="text" name='username' placeholder='Enter Username'>
+<label for="passowrd" name='password'>Password</label>
+<input type="password" name='password'>
+<input type="submit" name='' value='Login'>
+</form>
+
+{% endblock %}
